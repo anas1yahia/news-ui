@@ -14,58 +14,99 @@
 
    
 
-    <nav class="bg-white/80 backdrop-blur-sm flex flex-row shadow-md px-4 py-3 w-full fixed top-0 left-0 z-10 border-t-4 border-transparent [border-image:linear-gradient(to_right,#0ea5e9,#22c55e,#14b8a6)_1]">
+    <nav class="bg-white flex flex-row shadow-md px-4 py-3 w-full fixed top-0 left-0 z-10
+        border-t-8 border-transparent
+        [border-image:linear-gradient(to_right,#0ea5e9,#22c55e,#14b8a6)_1] ">
         <div class="w-full flex justify-between items-center">
             <!-- Left Side -->
-            <div class="flex items-center space-x-4">
-                <button class="p-2 hover:bg-gray-100/80 rounded-lg">
-                    <i class="ri-side-bar-line text-2xl text-gray-500"></i>
+            <div class="w-auto md:w-64 flex items-center">
+                <button class="p-2 hover:bg-gray-100 rounded-lg">
+                    <i class="ri-side-bar-line text-2xl text-gray-400"></i>
                 </button>
-                <span class="hidden md:block text-xl font-bold bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 bg-clip-text text-transparent">
-                    Domain Search
-                </span>
             </div>
-    
+
             <!-- Right Side -->
             <div class="flex items-center space-x-2 md:space-x-4 lg:space-x-6">
                 <!-- Language Selector - Hidden on mobile -->
-                <div class="hidden md:block">
-                    <button class="flex items-center space-x-2 hover:bg-gray-100/80 p-2 rounded-lg text-gray-600">
+                <div class="hidden md:block relative">
+                    <button class="flex items-center space-x-2 hover:bg-gray-100 p-2 rounded-lg">
                         <span>EN</span>
                         <i class="ri-arrow-down-s-line"></i>
                     </button>
                 </div>
-    
+
                 <!-- Dark Mode Toggle -->
-                <button class="flex items-center space-x-1 md:space-x-2 bg-gray-100/80 p-2 hover:bg-gray-200/80 rounded-lg text-gray-600">
+                <button class="flex items-center space-x-1 md:space-x-2 bg-slate-100 shadow-inner p-2 hover:bg-gray-100 rounded-lg">
                     <i class="ri-moon-line text-xl"></i>
                     <span class="hidden md:inline">Dark</span>
                 </button>
-    
+
                 <!-- Notifications -->
-                <button class="p-2 hover:bg-gray-100/80 rounded-lg relative text-gray-600">
+                <button class="p-2 hover:bg-gray-100 rounded-lg relative">
                     <i class="ri-notification-3-line text-xl"></i>
                     <span class="absolute top-0 right-0 h-2 w-2 bg-red-500 rounded-full"></span>
                 </button>
-    
-                <!-- Auth Buttons -->
-                <div class="flex items-center bg-slate-100 rounded-full space-x-2">
-                    <!-- Sign In Button -->
-                    <button id="signInButton" onclick="toggleSignInPopup()" class=" md:flex items-center px-4 py-2 text-gray-600 hover:text-gray-900 transition-colors">
-                        Sign in
+
+                <!-- Profile -->
+                <div id="profile" class="relative">
+                    <button onclick="toggleProfileMenu()" class="flex items-center space-x-2 md:space-x-3 hover:bg-gray-100 p-2 rounded-lg">
+                        <div class="bg-blue-500 text-white rounded-full h-8 w-8 flex items-center justify-center">
+                            <span>JD</span>
+                        </div>
+                        <!-- Profile Info - Hidden on mobile -->
+                        <div class="hidden md:block text-left">
+                            <p class="text-sm font-medium">John Doe</p>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Acme Inc</p>
+                        </div>
+                        <i class="ri-arrow-down-s-line"></i>
                     </button>
 
-                    <!-- Sign Up Button -->
-                    <button id="signUpButton" onclick="toggleSignUpPopup()" class="flex items-center px-4 py-2 bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 text-white rounded-full hover:opacity-90 transition-opacity">
-                        <span class="hidden md:inline">Sign up</span>
-                        <span class="md:hidden">Sign up</span>
-                    </button>
+                    <!-- Dropdown Menu -->
+                    <div id="profileMenu" class="absolute right-0 mt-2 w-44 opacity-0 pointer-events-none transform scale-95 transition-all duration-200 origin-top-right z-50">
+                        <div class="bg-white rounded-xl shadow-lg ring-1 ring-black ring-opacity-5 py-1">
+                            <!-- User Profile -->
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 space-x-3">
+                                <i class="ri-user-line text-gray-400"></i>
+                                <span>User Profile</span>
+                            </a>
+
+                            <!-- Dark Mode Toggle -->
+                            <button onclick="toggleDarkMode()" class="w-full flex items-center justify-between px-4 py-2 text-sm text-gray-700 hover:bg-gray-50">
+                                <div class="flex items-center space-x-3">
+                                    <i class="ri-moon-line"></i>
+                                    <span>Dark Mode</span>
+                                </div>
+
+                                <div class="relative">
+                                    <div class="w-10 h-6 flex items-center bg-gray-300 rounded-full p-1 duration-300 ease-in-out dark:bg-sky-400">
+                                        <div class="bg-white w-4 h-4 rounded-full shadow-md transform duration-300 ease-in-out dark:translate-x-4"></div>
+                                    </div>
+                                </div>
+                                
+                            </button>
+
+                            <!-- Help & Documentation -->
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-gray-700 hover:bg-gray-50 space-x-3">
+                                <i class="ri-question-line text-gray-400"></i>
+                                <span>Help & Docs</span>
+                            </a>
+
+                            <!-- Divider -->
+                            <div class="h-px bg-gray-200 my-1"></div>
+
+                            <!-- Sign Out -->
+                            <a href="#" class="flex items-center px-4 py-2 text-sm text-red-600 hover:bg-gray-50 space-x-3">
+                                <i class="ri-logout-box-line text-red-400"></i>
+                                <span>Sign Out</span>
+                            </a>
+                        </div>
+                    </div>
                 </div>
-    
-              
+
+                
             </div>
         </div>
-    </nav>
+        </nav>
 
 
 
@@ -136,170 +177,123 @@
                 </button>
             </nav>
         </div>
-    
+
+
+
         <!-- Main Content -->
-        <div id="content" class="flex-1 flex flex-col items-center justify-center px-4 md:px-6 lg:px-8 pb-20 lg:pb-8">
-            <div  class="w-full max-w-3xl mx-auto">
-                <!-- Hero Section -->
-                <div class="text-center w-full mb-8">
-                    <h1 class="text-2xl md:text-3xl mt-9 overflow-hidden lg:text-4xl text-center leading-normal md:leading-loose font-bold bg-gradient-to-r from-green-500 via-teal-500 to-sky-500 text-transparent bg-clip-text mb-4">
-                        "Uncover Hidden <span class="hover:text-sky-500">Subdomains</span>, <span class="hover:text-orange-500">Emails</span>, and <span class="hover:text-pink-500">IPs</span> with Our Powerful <span class="text-slate-400">Domain Dashboard</span>"
-                    </h1>
-                    <p class="text-base md:text-lg text-gray-600">
-                        Find and verify domain names instantly
-                    </p>
-                </div>
-    
-                
-    
-                <!-- Results Area -->
-                <div class="space-y-4 md:space-y-6">
-                    <div class="  p-6 md:p-8 text-center">
-                        <div class="flex flex-col items-center justify-center gap-4">
-                            <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center">
-                                <i class="ri-search-2-line text-3xl text-blue-600"></i>
-                            </div>
-                            <h2 class="text-xl font-semibold text-gray-900">
-                                Start Your Domain Search
-                            </h2>
-                            <p class="text-gray-500 max-w-md">
-                                Enter a domain name above to check its availability and registration details
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                
-
-
-                <!-- Search Section -->
-                <div class="bg-gray-50 rounded-full shadow-lg p-3 md:p-4 mb-6 md:mb-8 w-full">
+        <div class="flex-1 p-6 h-[calc(100vh-5rem)] overflow-y-auto custom-scrollbar pt-20 ">
+            <!-- Profile Section -->
+            <div class="bg-white/90 rounded-xl border border-slate-200 p-6 mb-6">
+                <div class="flex items-center space-x-4">
                     <div class="relative">
-                        <input id="searchInput" type="text" placeholder="Search domains..." class="w-full p-3 md:p-4 pl-10 md:pl-12 text-base md:text-lg rounded-full border border-gray-200 bg-gray-50 text-gray-900 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20">
-                        <i class="ri-search-line absolute left-3 md:left-4 top-1/2 -translate-y-1/2 text-gray-400 text-xl"></i>
-                        <button id="searchButton" class="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-blue-400 hover:bg-blue-500 text-white px-3 md:px-4 py-1.5 md:py-2 rounded-full flex items-center gap-2">
-                            <span class="hidden md:inline">Search</span>
-                            <i class="ri-arrow-right-line"></i>
+                        <div class="w-24 h-24 rounded-full bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 p-0.5">
+                            <img src="profile-picture.jpg" alt="Profile Picture" class="w-full h-full rounded-full object-cover bg-white">
+                        </div>
+                        <button class="absolute bottom-0 right-0 bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 text-white p-2 rounded-full hover:opacity-90 transition-opacity">
+                            <i class="ri-camera-line"></i>
                         </button>
                     </div>
+                    <div>
+                        <h2 class="text-2xl font-bold bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 bg-clip-text text-transparent">John Doe</h2>
+                        <p class="text-gray-600">Senior Developer</p>
+                    </div>
                 </div>
-
-
-
-
-
-                <!-- Skeleton Loading -->
-               
-                    <div id="skeletonLoading" class="hidden animate-pulse space-y-4">
-                        <!-- Table Header Skeleton -->
-                        <div class="flex space-x-4">
-                            <div class="h-10 bg-gray-200 rounded w-1/6"></div>
-                            <div class="h-10 bg-gray-200 rounded w-1/6"></div>
-                            <div class="h-10 bg-gray-200 rounded w-1/6"></div>
-                            <div class="h-10 bg-gray-200 rounded w-1/6"></div>
-                            <div class="h-10 bg-gray-200 rounded w-1/6"></div>
-                        </div>
-                        <!-- Table Row Skeletons -->
-                        <div class="space-y-2">
-                            <div class="flex space-x-4">
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                            </div>
-                            <div class="flex space-x-4">
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                            </div>
-                            <div class="flex space-x-4">
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                            </div>
-                            <div class="flex space-x-4">
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                                <div class="h-6 bg-gray-200 rounded w-1/6"></div>
-                            </div>
-                        </div>
-                    </div>
-
-
-                <!-- Search Results -->
-                    <div id="searchResults" class="hidden bg-white rounded-xl border border-gray-300 overflow-x-auto h-full">
-                        <p class="p-4">Sure, here is your search result about https://example.com :), hope you will find it useful</p>
-                        <!-- Actual Content -->
-                        <table class="w-full min-w-[800px]">
-                            <thead class="bg-gray-50">
-                                <tr>
-                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Domain Name</th>
-                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Sub Domains</th>
-                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">IP Address</th>
-                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Emails</th>
-                                    <th class="px-6 py-4 text-left text-sm font-semibold text-gray-600">Action</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-100">
-                                <!-- Example Row -->
-                                <tr>
-                                    <td class="px-6 py-4 text-sm">example.com</td>
-                                    <td class="px-6 py-4 text-sm">
-                                        <div class="space-y-1">
-                                            <div>blog.example.com</div>
-                                            <div>shop.example.com</div>
-                                            <button class="text-blue-500 text-xs hover:underline">View all (5+)</button>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm">
-                                        <div class="space-y-1 flex flex-col items-center">
-                                            <a href="#" class="text-blue-500 hover:underline">192.168.1.1</a>
-                                            <button class="text-blue-500 text-xs hover:underline">View all (3+)</button>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm">
-                                        <div class="space-y-1">
-                                            <div>admin@example.com</div>
-                                            <button class="text-blue-500 text-xs hover:underline">View all (2+)</button>
-                                        </div>
-                                    </td>
-                                    <td class="px-6 py-4 text-sm">
-                                        <div class="relative group">
-                                            <button class="p-1 hover:bg-gray-100 rounded-lg">
-                                                <i class="ri-more-2-fill text-gray-600"></i>
-                                            </button>
-                                            <div class="absolute right-16 top-0 mt-0 hidden group-hover:block w-40 bg-white border border-gray-300 rounded-lg shadow-lg z-20">
-                                                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">View Details</a>
-                                                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Export</a>
-                                                <a href="#" class="block px-4 py-2 text-sm hover:bg-gray-50">Edit</a>
-                                                <a href="#" class="block px-4 py-2 text-sm text-red-500 hover:bg-gray-50">Delete</a>
-                                            </div>
-                                        </div>
-                                    </td>
-                                </tr>
-                                <!-- Add more rows as needed -->
-                            </tbody>
-                        </table>
-                    </div>
-
-             
             </div>
+
+            <!-- Company Profile Settings -->
+            <div class="bg-white/90 rounded-xl border border-slate-200 p-6 mb-6">
+                <h3 class="text-xl font-semibold bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 bg-clip-text text-transparent mb-4">Company Profile</h3>
+                <form class="space-y-4">
+                    <div>
+                        <label class="block text-gray-600 mb-2">Company Name</label>
+                        <input type="text" value="Tech Corp" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 mb-2">Company Email</label>
+                        <input type="email" value="contact@techcorp.com" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                    </div>
+                    <div>
+                        <label class="block text-gray-600 mb-2">Company Phone</label>
+                        <input type="tel" value="+1 234 567 890" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                    </div>
+                    <button type="submit" class="bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 text-white rounded-lg px-4 py-2 hover:opacity-90 transition-opacity">Save Changes</button>
+                </form>
+            </div>
+
+            <!-- Security Settings -->
+            <div class="bg-white/90 rounded-xl border border-slate-200 p-6 mb-6">
+                <h3 class="text-xl font-semibold bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 bg-clip-text text-transparent mb-4">Security Settings</h3>
+                <div class="space-y-6">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-medium text-gray-800">SMS Two-Factor Auth</h4>
+                            <p class="text-sm text-gray-500">Enable 2FA via SMS OTP</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-sky-500 peer-checked:via-teal-500 peer-checked:to-green-500"></div>
+                        </label>
+                    </div>
+                    
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h4 class="font-medium text-gray-800">Email Two-Factor Auth</h4>
+                            <p class="text-sm text-gray-500">Enable 2FA via Email OTP</p>
+                        </div>
+                        <label class="relative inline-flex items-center cursor-pointer">
+                            <input type="checkbox" class="sr-only peer">
+                            <div class="w-11 h-6 bg-gray-200 peer-focus:outline-none rounded-full peer peer-checked:after:translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:left-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-gradient-to-r peer-checked:from-sky-500 peer-checked:via-teal-500 peer-checked:to-green-500"></div>
+                        </label>
+                    </div>
+
+                    <div class="pt-4 border-t border-gray-100">
+                        <h4 class="text-lg font-semibold text-gray-800 mb-4">Change Password</h4>
+                        <form class="space-y-4">
+                            <input type="password" placeholder="Current Password" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                            <input type="password" placeholder="New Password" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                            <input type="password" placeholder="Confirm New Password" class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-sky-500 focus:outline-none focus:ring-1 focus:ring-sky-500/20 transition-all">
+                            <button type="submit" class="bg-gradient-to-r from-sky-500 via-teal-500 to-green-500 text-white rounded-lg px-4 py-2 hover:opacity-90 transition-opacity">Update Password</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Disable Account -->
+            <div class="bg-white/90 rounded-xl border border-slate-200 p-6 mb-6">
+                <h3 class="text-xl font-semibold text-red-500 mb-4">Disable Account</h3>
+                <form class="space-y-4">
+                    <div class="space-y-2 flex flex-col">
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="reason" class="form-radio text-red-500">
+                            <span class="ml-2">No longer using the service</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="reason" class="form-radio text-red-500">
+                            <span class="ml-2">Found a better alternative</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="reason" class="form-radio text-red-500">
+                            <span class="ml-2">Privacy concerns</span>
+                        </label>
+                        <label class="inline-flex items-center">
+                            <input type="radio" name="reason" class="form-radio text-red-500">
+                            <span class="ml-2">Other reason</span>
+                        </label>
+                        <textarea placeholder="Please specify other reason..." class="w-full bg-slate-50 border border-slate-200 rounded-lg px-4 py-2 text-gray-600 focus:border-red-500 focus:outline-none focus:ring-1 focus:ring-red-500/20 transition-all"></textarea>
+                    </div>
+                    <button type="submit" class="bg-red-500 text-white rounded-lg px-4 py-2 hover:bg-red-600 transition-colors">Disable Account</button>
+                </form>
+            </div>
+
+
         </div>
 
 
 
-
-        
           
+
+    
+        
     </main>
 
 

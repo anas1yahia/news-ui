@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Avast Business Clone</title>
+    <link href="src/css/styles.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <nav class="bg-gray-800 p-4">
+            <div class="container mx-auto">
+                <div class="flex justify-between items-center">
+                    <div class="text-white text-lg font-bold">Avast Business</div>
+                    <div>
+                        <a href="#features" class="text-gray-300 hover:text-white px-4">Features</a>
+                        <a href="#pricing" class="text-gray-300 hover:text-white px-4">Pricing</a>
+                        <a href="#contact" class="text-gray-300 hover:text-white px-4">Contact</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <main class="container mx-auto my-8">
+        <section id="hero" class="text-center">
+            <h1 class="text-4xl font-bold">Protect Your Business with Avast</h1>
+            <p class="mt-4 text-lg">Comprehensive security solutions for businesses of all sizes.</p>
+            <a href="#pricing" class="mt-6 inline-block bg-blue-500 text-white py-2 px-4 rounded">Get Started</a>
+        </section>
+
+        <section id="features" class="my-8">
+            <h2 class="text-3xl font-bold text-center">Features</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4 mt-4">
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Feature 1</h3>
+                    <p>Description of feature 1.</p>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Feature 2</h3>
+                    <p>Description of feature 2.</p>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Feature 3</h3>
+                    <p>Description of feature 3.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="pricing" class="my-8">
+            <h2 class="text-3xl font-bold text-center">Pricing</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 mt-4">
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Basic Plan</h3>
+                    <p>$10/month</p>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Pro Plan</h3>
+                    <p>$20/month</p>
+                </div>
+                <div class="p-4 border rounded">
+                    <h3 class="font-semibold">Enterprise Plan</h3>
+                    <p>$30/month</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="contact" class="my-8">
+            <h2 class="text-3xl font-bold text-center">Contact Us</h2>
+            <form class="mt-4">
+                <input type="text" placeholder="Your Name" class="border p-2 w-full mb-4" required>
+                <input type="email" placeholder="Your Email" class="border p-2 w-full mb-4" required>
+                <textarea placeholder="Your Message" class="border p-2 w-full mb-4" required></textarea>
+                <button type="submit" class="bg-blue-500 text-white py-2 px-4 rounded">Send Message</button>
+            </form>
+        </section>
+    </main>
+
+    <footer class="bg-gray-800 p-4 text-center text-white">
+        <p>&copy; 2023 Avast Business Clone. All rights reserved.</p>
+    </footer>
+
+    <script src="src/js/script.js"></script>
+</body>
+</html>

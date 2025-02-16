@@ -1,0 +1,1015 @@
+<!DOCTYPE html>
+<html lang="en" class="cursor-none">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" integrity="sha512-XcIsjKMcuVe0Ucj/xgIXQnytNwBttJbNjltBV18IOnru2lDPe9KRRyvCXw6Y5H415vbBLRm8+q6fmLUU7DfO6Q==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+
+
+.typing-effect {
+            overflow: hidden;
+            border-right: .15em solid #0ea5e9;
+            white-space: nowrap;
+            animation: typing 3.5s steps(40, end), blink-caret .75s step-end infinite;
+        }
+        
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+        
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: #0ea5e9 }
+        }
+        
+        .typing-effect-delay {
+            animation-delay: 2s;
+        }
+        
+        .typing-effect-delay-2 {
+            animation-delay: 3s;
+        }
+
+
+
+body{
+  cursor: default;
+}
+
+
+
+        .flashlight-container {
+            position: relative;
+            isolation: isolate;
+        }
+
+        .flashlight-overlay {
+            pointer-events: none;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(
+                circle 15vmax at var(--cursorX) var(--cursorY),
+                rgba(15, 60, 122, 0) 0%,
+                #041124 100%
+            );
+            z-index: 20;
+            mix-blend-mode: multiply;
+        }
+
+        /* Ensure navigation stays above the overlay */
+        nav {
+            position: relative;
+            z-index: 30;
+        }
+
+
+
+
+        #content-main {
+        position: relative;
+        background-color: transparent;
+
+        cursor: default;
+            }
+
+/* Ensure content stays above effect */
+.relative.z-30 {
+    position: relative;
+    z-index: 30;
+}
+
+
+.flashlight-container {
+        cursor: url(../public/images/search-icon.png) 24 24, auto;
+
+    }
+
+
+    /*feature section*/
+.hr-feature-card {
+    background-color: #f9fafb; /* Light Gray */
+    border: 1px solid #e5e7eb; /* Gray-200 */
+    border-radius: 0.75rem;
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out, backdrop-filter 0.2s ease-in-out;
+    -webkit-backdrop-filter: blur(5px); /* Initial blur for Safari */
+    backdrop-filter: blur(5px); /* Initial blur */
+}
+
+.hr-feature-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    -webkit-backdrop-filter: blur(10px); /* For Safari support */
+    backdrop-filter: blur(10px); /* Increased blur on hover */
+    background-color: rgba(249, 250, 251, 0.7); /* Slightly lighten on hover */
+}
+
+.hr-feature-icon {
+    background-color: #e5e7eb; /* Gray-200 */
+    border-radius: 0.5rem;
+    padding: 0.75rem;
+}
+
+.hr-feature-title {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151; /* Gray-700 */
+}
+
+.hr-feature-description {
+    font-size: 1rem;
+    color: #6b7280; /* Gray-500 */
+}
+
+.hr-code-snippet {
+    font-family: monospace;
+    font-size: 0.875rem;
+    color: #4b5563; /* Gray-600 */
+    background-color: #f3f4f6; /* Gray-100 */
+    padding: 0.5rem;
+    border-radius: 0.375rem;
+    overflow-x: auto;
+}
+
+/*pathmap feature*/
+.path-map {
+    position: absolute;
+    top: 50;
+    left: 20%;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 0;
+}
+
+.path-line {
+    fill: none;
+    stroke-width: 6px;
+    stroke-dasharray: 2000; /* Increased to cover full width */
+    stroke-dashoffset: 2000; /* Increased to cover full width */
+    animation: drawPath 5s linear forwards; /* Adjusted animation duration */
+}
+
+@keyframes drawPath {
+    to {
+        stroke-dashoffset: 0;
+    }
+}
+
+.security-gradient {
+    stop-color: #0ea5e9; /* Sky Blue */
+}
+
+.security-gradient-2 {
+    stop-color: #34d399; /* Teal Green */
+}
+
+.security-gradient-3 {
+    stop-color: #a855f7; /* Purple */
+}
+
+
+
+.night-light-button {
+    
+    box-shadow: 0 0 20px rgba(20, 122, 255, 0.7); /* Indigo-400 with glow */
+    transition: background-color 0.3s ease, box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.night-light-button:hover {
+    background-color: #2370ff; /* Indigo-600 */
+    box-shadow: 0 0 25px rgba(20, 122, 255, 0.9); /* Indigo-600 with stronger glow */
+    transform: translateY(-2px);
+}
+
+
+
+
+
+
+
+
+
+       
+    </style>
+</head>
+<body class="bg-gray-100">
+
+
+ 
+                <!-- Navigation Outside Effect Area -->
+                <nav class="bg-[#0c2636] border-b border-slate-800 px-4 py-3 w-full fixed top-0 left-0 z-10">
+                <div class="container mx-auto">
+                    <div class="flex justify-between items-center">
+                        <!-- Left Side: Logo + Main Nav -->
+                        <div class="flex items-center space-x-8">
+                            <!-- Logo -->
+                            <a href="#" class="flex items-center space-x-2 ">
+                                <div class="flex items-center gap-3">
+                                    <img src="../public/images/logo.svg" class="h-8" alt="icon">
+                                    <span class="text-3xl font-semibold text-white">Ceyaj</span>
+                                </div>
+                            </a>
+            
+                            <!-- Main Navigation -->
+                            <div class="hidden md:flex items-center space-x-6">
+                                <a href="#" class="text-gray-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg transition-all">
+                                    Home
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg transition-all">
+                                    About Us
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg transition-all">
+                                    Leaks Analytics
+                                </a>
+                                <a href="#" class="text-gray-300 hover:text-white hover:bg-white/5 px-4 py-2 rounded-lg transition-all">
+                                    Our Plans
+                                </a>
+                            </div>
+                        </div>
+            
+                        <!-- Right Side: Utilities -->
+                        <div class="flex items-center space-x-4">
+                            <!-- Search -->
+                            <button class="text-gray-300 hover:text-white p-2 hover:bg-white/5 rounded-lg transition-all">
+                                <i class="ri-search-line text-xl"></i>
+                            </button>
+            
+                            <!-- Language -->
+                            <div class="relative">
+                                <button class="flex items-center space-x-2 text-gray-300 hover:text-white p-2 hover:bg-white/5 rounded-lg transition-all">
+                                    <span>EN</span>
+                                    <i class="ri-arrow-down-s-line"></i>
+                                </button>
+                            </div>
+            
+                            <!-- Dark Mode Toggle -->
+                            <button class="text-gray-300 hover:text-white p-2 hover:bg-white/5 rounded-lg transition-all">
+                                <i class="ri-moon-line text-xl"></i>
+                            </button>
+            
+                            <!-- Mobile Menu Button -->
+                            <button onclick="toggleMenu()" id="menuButton" class="md:hidden text-gray-300 hover:text-white p-2 hover:bg-white/5 rounded-lg transition-all">
+                                <i class="ri-menu-line text-xl menu-icon"></i>
+                                <i class="ri-close-line text-xl close-icon hidden"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            
+                <!-- Mobile Navigation Menu -->
+                <div id="mobileMenu" class="md:hidden fixed inset-0 bg-slate-900/50 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-300">
+                    <div class="bg-slate-800/50 backdrop-blur-xl h-auto mt-16 mx-4 rounded-2xl border border-white/10 transform scale-95 opacity-0 transition-all duration-300">
+                        <div class="px-2 pt-2 pb-3 space-y-1">
+                            <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 rounded-lg transition-all">
+                                Home
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 rounded-lg transition-all">
+                                About Us
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 rounded-lg transition-all">
+                                Leaks Analytics
+                            </a>
+                            <a href="#" class="block text-gray-300 hover:text-white hover:bg-white/5 px-3 py-2 rounded-lg transition-all">
+                                Our Plans
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+
+   
+        
+          <main>
+
+
+
+                  <!-- Hero Section -->
+                  <section class="relative  bg-[#0c2636] min-h-screen flex items-center">
+
+
+                     <!-- Flashlight Container (Main Content Area) -->
+                    <div class="flashlight-container w-full h-screen my-14">
+                      <div class="flashlight-overlay"></div>
+
+                      <div id="background" class="absolute inset-0 h-screen overflow-hidden">
+                        <img src="../public/images/image.png" class="w-full h-full object-cover" alt="">
+                     
+           
+                    </div>
+                             
+
+                      
+                    
+
+
+                       
+                      <!-- Content -->
+                      <div id="content-main" class="relative container z-50  h-screen mx-auto px-4 pt-32 pb-20 my-28">
+                          <!-- Terminal Effect -->
+              
+                          <div class=" max-w-4xl mx-auto">
+                              <div class="bg-slate-900/80 backdrop-blur-xl rounded-lg border border-sky-500/20 p-6 mb-8">
+                                  <div class="flex items-center mb-4">
+                                      <div class="flex space-x-2">
+                                          <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                                          <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                                          <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                                      </div>
+                                  </div>
+                                  <div class="terminal-text">
+                                      <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 typing-effect">
+                                          Domain Security Scanner_
+                                      </h1>
+                                      <p class="text-sky-500 mb-4 typing-effect-delay">
+                                          > Initializing security protocols...
+                                      </p>
+                                      <p class="text-green-500 mb-6 typing-effect-delay-2">
+                                          > Ready to scan for vulnerabilities
+                                      </p>
+                                  </div>
+                              </div>
+                                  <!-- Search Bar -->
+                                  <div class="bg-slate-800/50 backdrop-blur-xl rounded-full border border-sky-500/20 p-4">
+                                      <div class="relative ">
+                                          <input type="text" 
+                                              placeholder="Enter domain to scan..." 
+                                              class="w-full bg-slate-900/90 text-sky-500 placeholder-sky-500/50 rounded-full px-5 py-4 pr-36 border border-sky-500/20 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none">
+                                          <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-lime-500 text-white px-6 py-2 rounded-full hover:bg-lime-600 transition-all group">
+                                              <span class="group-hover:hidden">Scan Now</span>
+                                              <span class="hidden group-hover:inline">> Execute_</span>
+                                          </button>
+                                      </div>
+                                  </div>
+
+                                
+
+                                
+                                  <!-- Scan Results -->
+                                  <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-sky-500/20 p-4 mt-12">
+                                      <p class="text-sky-500 mb-2">Scan results:</p>
+                                      <p class="text-white">Domain: example.com</p>
+                                      <p class="text-white">Status: Clean</p>
+                                      <p class="text-white">Vulnerabilities: None</p>
+                                  </div>
+
+                                  <!-- Security Icons -->
+                                  <div class="flex justify-center space-x-8 mb-12 mt-12">
+                                      <div class="text-center">
+                                          <i class="ri-shield-check-line text-4xl text-sky-500 mb-2"></i>
+                                          <p class="text-gray-400">Domain Protection</p>
+                                      </div>
+                                      <div class="text-center">
+                                          <i class="ri-lock-password-line text-4xl text-teal-500 mb-2"></i>
+                                          <p class="text-gray-400">Leak Detection</p>
+                                      </div>
+                                      <div class="text-center">
+                                          <i class="ri-eye-line text-4xl text-green-500 mb-2"></i>
+                                          <p class="text-gray-400">24/7 Monitoring</p>
+                                      </div>
+                                  </div>
+
+
+                                  <!-- Stats -->
+                                  <div class="grid grid-cols-3 gap-6 mt-12">
+                                      <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-sky-500/20 p-6 text-center">
+                                          <div class="text-4xl font-bold text-sky-500 mb-2">500K+</div>
+                                          <div class="text-gray-400">Domains Scanned</div>
+                                      </div>
+                                      <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-green-500/20 p-6 text-center">
+                                          <div class="text-4xl font-bold text-green-500 mb-2">1M+</div>
+                                          <div class="text-gray-400">Threats Detected</div>
+                                      </div>
+                                      <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-purple-500/20 p-6 text-center">
+                                          <div class="text-4xl font-bold text-purple-500 mb-2">24/7</div>
+                                          <div class="text-gray-400">Active Monitoring</div>
+                                      </div>
+                                  </div>
+
+                                  <!-- request demo -->
+                                  <div class="flex justify-center items-center  mt-12">
+                                    <button class="flex justify-center items-center space-x-2 text-2xl px-8 bg-Indigo-500 night-light-button transition-all p-4 rounded-full mt-12">
+                                        <i class="ri-shield-check-line text-2xl text-white"></i>
+                                        <span class="text-white ">Request live demo session</span>
+                                    </button>
+                                    
+                                    </div>
+
+
+                                  
+
+                          </div>
+                            
+                        
+
+                      </div>
+
+
+                    </div>
+
+                   
+
+
+                  </section>
+
+                  <!-- Features Section -->
+                  <section class="py-24 relative overflow-hidden my-16">
+                    <!-- Path Map Background -->
+                    <div class="container mx-auto px-4">
+                        <svg class="path-map w-full">
+                            <path class="path-line" stroke="url(#pathGradient)"
+                                  d="M50,50 C200,100 300,50 450,150 C600,250 700,150 850,50 C1000,-50 1100,50 1250,150" />
+                           
+                
+                           
+                        <defs>
+                            <linearGradient id="pathGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" class="security-gradient" />
+                                <stop offset="50%" class="security-gradient-2" />
+                                <stop offset="100%" class="security-gradient-3" />
+                            </linearGradient>
+                        </defs>
+                    </svg>
+                                     
+                </div>
+                
+                
+                <div class="container mx-auto px-4">
+                    <h2 class="text-4xl font-bold text-center text-gray-800 mb-16">
+                        Powerful Security Features
+                    </h2>
+                    
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <!-- Domain Protection -->
+                        <div class="hr-feature-card p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="hr-feature-icon">
+                                    <i class="ri-shield-keyhole-line text-2xl text-sky-500"></i>
+                                </div>
+                                <h3 class="hr-feature-title">Domain Protection</h3>
+                            </div>
+                            <p class="hr-feature-description mb-4">
+                                Protect your domains from unauthorized access and cyber threats.
+                            </p>
+                            <div class="hr-code-snippet">
+                                <code>
+                                    // Enable domain protection
+                                    enableDomainProtection("example.com");
+                                </code>
+                            </div>
+                        </div>
+                
+                        <!-- Leak Detection -->
+                        <div class="hr-feature-card p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="hr-feature-icon">
+                                    <i class="ri-radar-line text-2xl text-teal-500"></i>
+                                </div>
+                                <h3 class="hr-feature-title">Leak Detection</h3>
+                            </div>
+                            <p class="hr-feature-description mb-4">
+                                Real-time monitoring and early detection of potential data leaks.
+                            </p>
+                            <div class="hr-code-snippet">
+                                <code>
+                                    // Monitor for data leaks
+                                    monitorDataLeaks("example.com");
+                                </code>
+                            </div>
+                        </div>
+                
+                        <!-- Analytics -->
+                        <div class="hr-feature-card p-6">
+                            <div class="flex items-center space-x-4 mb-4">
+                                <div class="hr-feature-icon">
+                                    <i class="ri-file-chart-line text-2xl text-green-500"></i>
+                                </div>
+                                <h3 class="hr-feature-title">Advanced Analytics</h3>
+                            </div>
+                            <p class="hr-feature-description mb-4">
+                                Comprehensive security analysis and actionable insights for your domains.
+                            </p>
+                            <div class="hr-code-snippet">
+                                <code>
+                                    // Generate security report
+                                    generateSecurityReport("example.com");
+                                </code>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                </section>
+
+                   
+
+                  <!-- Report Demo Section -->
+
+                  <section class="py-24 bg-[#f9e5d3]  flex flex-col gap-16 relative mt-16 mb-[480px]">
+                    <div class="container mx-auto px-4">
+                        <div class="grid md:grid-cols-2 gap-12 items-center">
+                            <!-- Left Side: Enhanced Image/Video Presentation -->
+                            <div class="md:order-1">
+                               <!-- Combined Option: Video Overlay on Image -->
+                               <div class="md:order-1">
+                                <!-- Glassmorphic Video Player -->
+                                <div class="relative group rounded-2xl overflow-hidden shadow-xl">
+                                    <!-- Placeholder Image (Replace with your video thumbnail) -->
+                                    <img src="../public/images/bg.webp" alt="Data Report Example" class="w-full h-auto object-cover">
+
+                                    <!-- Glassmorphic Overlay -->
+                                    <div class="absolute inset-0 bg-white/10 backdrop-blur-md flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <!-- Play Icon -->
+                                        <div class="w-16 h-16 rounded-full bg-sky-500 text-white flex items-center justify-center cursor-pointer hover:bg-sky-600 transition-colors duration-300">
+                                            <i class="ri-play-fill text-3xl"></i>
+                                        </div>
+                                    </div>
+
+                                    <!-- Faux Video Controls (Optional) -->
+                                    <div class="absolute bottom-0 left-0 w-full bg-black/40 text-white p-2 flex items-center justify-between opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <div class="flex items-center space-x-2">
+                                            <i class="ri-volume-up-line"></i>
+                                            <span>0:00 / 2:30</span>
+                                        </div>
+                                        <i class="ri-fullscreen-line"></i>
+                                    </div>
+                                </div>
+                            </div>
+                            </div>
+
+                            <!-- Right Side: Engaging Text Content -->
+                            <div class="md:order-2">
+                                <h2 class="text-4xl font-extrabold text-state-900 mb-6 leading-tight">
+                                    Unlock the Power of Data-Driven Security
+                                </h2>
+                                <p class="text-slate-700 text-lg mb-8">
+                                    Discover how our advanced data reports can revolutionize your security strategy. Gain unparalleled visibility into your systems, identify hidden threats, and make proactive decisions to protect your business.
+                                </p>
+
+                                <!-- Feature Highlights with Icons -->
+                                <div class="space-y-4 mb-8">
+                                    <div class="flex items-start space-x-4">
+                                        <i class="ri-line-chart-line text-3xl text-sky-500"></i>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-slate-800">Actionable Insights</h4>
+                                            <p class="text-slate-600">Transform raw data into clear, strategic recommendations.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <i class="ri-shield-flash-line text-3xl text-teal-500"></i>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-slate-800">Proactive Threat Detection</h4>
+                                            <p class="text-slate-600">Stay ahead of emerging threats with real-time monitoring and alerts.</p>
+                                        </div>
+                                    </div>
+                                    <div class="flex items-start space-x-4">
+                                        <i class="ri-file-code-line text-3xl text-purple-500"></i>
+                                        <div>
+                                            <h4 class="text-lg font-semibold text-slate-800">Customizable Reporting</h4>
+                                            <p class="text-slate-600">Tailor reports to your specific needs and compliance requirements.</p>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Call to Action with Animation -->
+                                <button class="px-8 py-4 bg-gradient-to-r bg-green-600 text-white rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all inline-flex items-center space-x-2">
+                                    <span>Explore a Sample Report</span>
+                                    <i class="ri-arrow-right-line animate-pulse"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Do you want to Section -->
+
+                    <div class="container mx-auto my-16 px-4">
+                        <div class="grid md:grid-cols-2 gap-8 items-center">
+                            <!-- Left Side: Compelling Question & Description -->
+                            <div class="md:order-1">
+                                <h2 class="text-4xl font-extrabold text-slate-900 mb-6 leading-tight">
+                                    Want to Stay One Step Ahead of Cyber Threats?
+                                </h2>
+                                <p class="text-slate-700 text-lg mb-8">
+                                    In today's digital landscape, a proactive security strategy is essential. Discover how our cutting-edge solutions can safeguard your business from evolving cyber threats.
+                                </p>
+
+                                <!-- Key Benefits -->
+                                <ul class="list-disc pl-5 mb-8 text-slate-700">
+                                    <li><strong>Real-time Threat Intelligence:</strong> Stay informed about emerging threats.</li>
+                                    <li><strong>Proactive Vulnerability Scanning:</strong> Identify weaknesses before attackers do.</li>
+                                    <li><strong>Automated Security Measures:</strong> Protect your systems with minimal effort.</li>
+                                </ul>
+
+                                <!-- Call to Action -->
+                                <button class="px-8 py-4 border border-spacing-0.5 border-gray-500 text-gray-600 rounded-xl hover:shadow-lg hover:-translate-y-1 transition-all inline-flex items-center space-x-2 group-hover:bg hover:text-white hover:border-none hover:bg-slate-500 hover:font-bold">
+                                    <span>Explore Our Security Solutions</span>
+                                    <i class="ri-arrow-right-line animate-pulse"></i>
+                                </button>
+                            </div>
+
+                            <!-- Right Side: Engaging Text Content -->
+                            <div class="md:order-2 bg-white/60 backdrop-blur-xl">
+                                <div class=" rounded-2xl shadow-lg p-8">
+                                    <h2 class="text-3xl font-extrabold text-gray-900 mb-4 leading-tight">
+                                        Unlock the Power of Data-Driven Security
+                                    </h2>
+                                    <p class="text-gray-700 text-lg mb-6">
+                                        Discover how our advanced data reports can revolutionize your security strategy. Gain unparalleled visibility into your systems, identify hidden threats, and make proactive decisions to protect your business.
+                                    </p>
+
+                                    <!-- Feature Highlights with Icons -->
+                                    <div class="space-y-4 mb-6">
+                                        <div class="flex items-start space-x-4">
+                                            <div class="p-2 rounded-lg bg-sky-100 text-sky-500">
+                                                <i class="ri-line-chart-line text-2xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-semibold text-gray-800">Actionable Insights</h4>
+                                                <p class="text-gray-600">Transform raw data into clear, strategic recommendations.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-4">
+                                            <div class="p-2 rounded-lg bg-teal-100 text-teal-500">
+                                                <i class="ri-shield-flash-line text-2xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-semibold text-gray-800">Proactive Threat Detection</h4>
+                                                <p class="text-gray-600">Stay ahead of emerging threats with real-time monitoring and alerts.</p>
+                                            </div>
+                                        </div>
+                                        <div class="flex items-start space-x-4">
+                                            <div class="p-2 rounded-lg bg-purple-100 text-purple-500">
+                                                <i class="ri-file-code-line text-2xl"></i>
+                                            </div>
+                                            <div>
+                                                <h4 class="text-lg font-semibold text-gray-800">Customizable Reporting</h4>
+                                                <p class="text-gray-600">Tailor reports to your specific needs and compliance requirements.</p>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                   <!-- How It Works Section -->
+                   <div class="container absolute top-[1300px] left-1/2 transform -translate-x-1/2 px-4 bg-white rounded-2xl border border-white shadow-lg p-8">
+
+                        <h2 class="text-3xl font-bold text-center text-slate-800 mb-16">
+                            How It Works
+                        </h2>
+
+                        <div class="max-w-5xl mx-auto">
+                            <div class="grid md:grid-cols-4 gap-8 relative">
+                                <!-- Connecting Lines (Hidden on Mobile) -->
+                                <div class="hidden md:block absolute top-16 left-0 right-0 h-0.5 bg-gradient-to-r from-sky-500 via-teal-500 to-green-500"></div>
+
+                                <!-- Step 1 -->
+                                <div class="relative bg-white/60 backdrop-blur-xl p-6 rounded-xl border border-white shadow-lg group hover:-translate-y-1 transition-all">
+                                    <div class="w-12 h-12 bg-sky-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                                        <i class="ri-search-2-line text-2xl text-sky-500"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-800 mb-2 text-center">Domain Scan</h3>
+                                    <p class="text-slate-600 text-sm text-center">Enter your domain for comprehensive security analysis</p>
+                                </div>
+
+                                <!-- Step 2 -->
+                                <div class="relative bg-white/60 backdrop-blur-xl p-6 rounded-xl border border-white shadow-lg group hover:-translate-y-1 transition-all">
+                                    <div class="w-12 h-12 bg-teal-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                                        <i class="ri-shield-scan-line text-2xl text-teal-500"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-800 mb-2 text-center">Threat Detection</h3>
+                                    <p class="text-slate-600 text-sm text-center">AI-powered analysis identifies potential security risks</p>
+                                </div>
+
+                                <!-- Step 3 -->
+                                <div class="relative bg-white/60 backdrop-blur-xl p-6 rounded-xl border border-white shadow-lg group hover:-translate-y-1 transition-all">
+                                    <div class="w-12 h-12 bg-blue-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                                        <i class="ri-file-chart-line text-2xl text-blue-500"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-800 mb-2 text-center">Report Generation</h3>
+                                    <p class="text-slate-600 text-sm text-center">Detailed security report with actionable insights</p>
+                                </div>
+
+                                <!-- Step 4 -->
+                                <div class="relative bg-white/60 backdrop-blur-xl p-6 rounded-xl border border-white shadow-lg group hover:-translate-y-1 transition-all">
+                                    <div class="w-12 h-12 bg-green-500/10 rounded-lg flex items-center justify-center mb-4 group-hover:scale-110 transition-transform mx-auto">
+                                        <i class="ri-shield-check-line text-2xl text-green-500"></i>
+                                    </div>
+                                    <h3 class="text-lg font-semibold text-slate-800 mb-2 text-center">Implementation</h3>
+                                    <p class="text-slate-600 text-sm text-center">Apply security measures and continuous monitoring</p>
+                                </div>
+                            </div>
+
+                            <!-- Call to Action -->
+                            <div class="text-center mt-16">
+                                <button class="px-8 py-4 bg-green-600 text-white rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all">
+                                    Start Your Security Scan
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                
+
+                    
+                </section>
+
+
+                
+                <!-- FAQs Section -->
+                <section class="py-20 bg-gray-100">
+                    <div class="container mx-auto px-4">
+                        <h2 class="text-3xl font-bold text-center text-gray-800 mb-12">
+                            Frequently Asked Questions
+                        </h2>
+
+                        <div class="max-w-3xl mx-auto">
+                            <div class="space-y-4">
+                                <!-- FAQ Item 1 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                What types of security threats can you detect?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        We can detect a wide range of threats, including malware, phishing attacks, data leaks, and more.
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 2 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                How often are your security reports updated?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        Our security reports are updated in real-time, providing you with the latest information.
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 3 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                Can I customize the security measures for my domain?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        Yes, our security measures are fully customizable to meet your specific needs.
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 4 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                What is the average response time for security incidents?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        Our average response time for security incidents is less than 1 hour.
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 5 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                Do you offer 24/7 customer support?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        Yes, we offer 24/7 customer support via phone, email, and chat.
+                                    </div>
+                                </div>
+
+                                <!-- FAQ Item 6 -->
+                                <div class="bg-white rounded-lg shadow-md">
+                                    <button class="faq-question block w-full text-left p-4 rounded-t-lg focus:outline-none focus:shadow-outline">
+                                        <div class="flex items-center justify-between">
+                                            <h3 class="text-lg font-semibold text-gray-700">
+                                                How do I get started with your security services?
+                                            </h3>
+                                            <i class="ri-arrow-down-s-line text-xl text-gray-500"></i>
+                                        </div>
+                                    </button>
+                                    <div class="faq-answer hidden p-4 text-gray-600">
+                                        You can get started by contacting us for a free consultation.
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+
+                
+
+
+                  
+                     
+
+
+                 
+
+
+                         
+          </main>
+
+
+          <!-- Footer Section -->
+        <footer class="bg-slate-900 py-24 relative">
+
+
+                  
+                    <div class="container mx-auto px-4">
+                        <div class="grid md:grid-cols-4 gap-12">
+                            <!-- Logo & Description -->
+                            <div>
+                                <a href="#" class="flex items-center space-x-2 mb-6">
+                                    <img src="../public/images/logo.svg" class="h-10" alt="icon">
+                                    <span class="text-2xl font-semibold text-white">Ceyaj</span>
+                                </a>
+                                <p class="text-gray-400 text-lg mb-8">
+                                    Your trusted partner for domain security and threat detection.
+                                </p>
+                                <div class="flex space-x-4">
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                        <i class="ri-facebook-line text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                        <i class="ri-twitter-line text-2xl"></i>
+                                    </a>
+                                    <a href="#" class="text-gray-400 hover:text-white transition-colors">
+                                        <i class="ri-linkedin-line text-2xl"></i>
+                                    </a>
+                                </div>
+                            </div>
+
+                            <!-- Contact Links -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-6">Contact</h4>
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            <i class="ri-mail-line align-bottom mr-2"></i> info@example.com
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            <i class="ri-phone-line align-bottom mr-2"></i> +1 (555) 123-4567
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            <i class="ri-map-pin-line align-bottom mr-2"></i> 123 Main St, Anytown, USA
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Quick Links -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-6">Quick Links</h4>
+                                <ul class="space-y-3">
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            About Us
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            Services
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            Pricing
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="#" class="text-gray-400 hover:text-white transition-colors text-lg">
+                                            Blog
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+
+                            <!-- Newsletter -->
+                            <div>
+                                <h4 class="text-xl font-semibold text-white mb-6">Newsletter</h4>
+                                <p class="text-gray-400 text-lg mb-6">
+                                    Subscribe to our newsletter for the latest security updates and tips.
+                                </p>
+                                <div class="flex flex-col">
+                                    <input type="email" placeholder="Your Email" class="bg-slate-800 text-gray-300 rounded-md px-6 py-3 mb-3 focus:outline-none focus:ring-2 focus:ring-sky-500 text-lg">
+                                    <button class="bg-sky-500 hover:bg-sky-600 text-white rounded-md px-6 py-3 transition-colors text-lg">Subscribe</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Copyright -->
+                        <div class="mt-12 border-t border-slate-800 pt-6">
+                            <p class="text-gray-500 text-lg text-center">
+                                &copy; 2025 Ceyaj. All rights reserved.
+                            </p>
+                        </div>
+                    </div>
+                </footer>
+    
+
+
+
+       
+  
+
+          <script src="../src/index.js"></script>
+    <script>
+        function update(e) {
+            const container = document.querySelector('.flashlight-container');
+            const rect = container.getBoundingClientRect();
+            
+            // Calculate position relative to container
+            const x = (e.clientX || e.touches[0].clientX) - rect.left + window.scrollX;
+            const y = (e.clientY || e.touches[0].clientY) - rect.top + window.scrollY;
+            
+            document.documentElement.style.setProperty('--cursorX', `${x}px`);
+            document.documentElement.style.setProperty('--cursorY', `${y}px`);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const container = document.querySelector('.flashlight-container');
+            const rect = container.getBoundingClientRect();
+            
+            // Initialize at container center
+            const initX = rect.width / 2;
+            const initY = rect.height / 2;
+            
+            document.documentElement.style.setProperty('--cursorX', `${initX}px`);
+            document.documentElement.style.setProperty('--cursorY', `${initY}px`);
+            
+            document.addEventListener('mousemove', update);
+            document.addEventListener('touchmove', update);
+        });
+
+        // Handle window resize
+        window.addEventListener('resize', () => {
+            const container = document.querySelector('.flashlight-container');
+            const rect = container.getBoundingClientRect();
+            const initX = rect.width / 2;
+            const initY = rect.height / 2;
+            
+            document.documentElement.style.setProperty('--cursorX', `${initX}px`);
+            document.documentElement.style.setProperty('--cursorY', `${initY}px`);
+        });
+
+
+
+        document.addEventListener('DOMContentLoaded', () => {
+    const cursor = document.querySelector('.custom-cursor');
+    
+    document.addEventListener('mousemove', (e) => {
+        cursor.style.left = e.clientX + 'px';
+        cursor.style.top = e.clientY + 'px';
+    });
+
+    // Optional: Scale effect on hover
+    document.querySelectorAll('a, button').forEach(el => {
+        el.addEventListener('mouseenter', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1.2)';
+        });
+        el.addEventListener('mouseleave', () => {
+            cursor.style.transform = 'translate(-50%, -50%) scale(1)';
+        });
+    });
+});
+
+
+
+    </script>
+</body>
+</html>

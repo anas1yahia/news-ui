@@ -1,0 +1,104 @@
+<!-- Flashlight Effect Area -->
+<div class="flashlight-container h-screen w-full fixed">
+    <div class="flashlight-overlay"></div>
+    <div id="background" class="absolute inset-0 h-full overflow-hidden">
+        <!-- Background shapes -->
+        <div class="absolute -top-40 -right-40 w-80 h-80 bg-sky-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute top-20 -left-40 w-80 h-80 bg-teal-500/20 rounded-full blur-3xl"></div>
+        <div class="absolute bottom-0 right-0 w-80 h-80 bg-green-500/20 rounded-full blur-3xl"></div>
+    </div>
+</div>
+
+ <!-- Hero Section -->
+ <section class="relative z-50  min-h-screen">
+
+
+              
+  <!-- Content -->
+  <div class="relative container mx-auto px-4 pt-32 pb-20">
+      <!-- Terminal Effect -->
+
+      <div class="max-w-4xl mx-auto">
+          <div class="bg-slate-900/80 backdrop-blur-xl rounded-lg border border-sky-500/20 p-6 mb-8">
+              <div class="flex items-center mb-4">
+                  <div class="flex space-x-2">
+                      <div class="w-3 h-3 rounded-full bg-red-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-yellow-500"></div>
+                      <div class="w-3 h-3 rounded-full bg-green-500"></div>
+                  </div>
+              </div>
+              <div class="terminal-text">
+                  <h1 class="text-4xl md:text-6xl font-bold text-white mb-6 typing-effect">
+                      Domain Security Scanner_
+                  </h1>
+                  <p class="text-sky-500 mb-4 typing-effect-delay">
+                      > Initializing security protocols...
+                  </p>
+                  <p class="text-green-500 mb-6 typing-effect-delay-2">
+                      > Ready to scan for vulnerabilities
+                  </p>
+              </div>
+          </div>
+              <!-- Search Bar -->
+              <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-sky-500/20 p-4">
+                  <div class="relative">
+                      <input type="text" 
+                          placeholder="Enter domain to scan..." 
+                          class="w-full bg-slate-900/90 text-sky-500 placeholder-sky-500/50 rounded-lg px-5 py-4 pr-36 border border-sky-500/20 focus:border-sky-500 focus:ring-2 focus:ring-sky-500/20 focus:outline-none">
+                      <button class="absolute right-2 top-1/2 -translate-y-1/2 bg-sky-500 text-white px-6 py-2 rounded-lg hover:bg-sky-600 transition-all group">
+                          <span class="group-hover:hidden">Scan Now</span>
+                          <span class="hidden group-hover:inline">> Execute_</span>
+                      </button>
+                  </div>
+              </div>
+
+             
+
+             
+              <!-- Scan Results -->
+              <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-sky-500/20 p-4 mt-12">
+                  <p class="text-sky-500 mb-2">Scan results:</p>
+                  <p class="text-white">Domain: example.com</p>
+                  <p class="text-white">Status: Clean</p>
+                  <p class="text-white">Vulnerabilities: None</p>
+              </div>
+
+               <!-- Security Icons -->
+               <div class="flex justify-center space-x-8 mb-12 mt-12">
+                  <div class="text-center">
+                      <i class="ri-shield-check-line text-4xl text-sky-500 mb-2"></i>
+                      <p class="text-gray-400">Domain Protection</p>
+                  </div>
+                  <div class="text-center">
+                      <i class="ri-lock-password-line text-4xl text-teal-500 mb-2"></i>
+                      <p class="text-gray-400">Leak Detection</p>
+                  </div>
+                  <div class="text-center">
+                      <i class="ri-eye-line text-4xl text-green-500 mb-2"></i>
+                      <p class="text-gray-400">24/7 Monitoring</p>
+                  </div>
+              </div>
+
+
+               <!-- Stats -->
+               <div class="grid grid-cols-3 gap-6 mt-12">
+                  <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-sky-500/20 p-6 text-center">
+                      <div class="text-4xl font-bold text-sky-500 mb-2">500K+</div>
+                      <div class="text-gray-400">Domains Scanned</div>
+                  </div>
+                  <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-green-500/20 p-6 text-center">
+                      <div class="text-4xl font-bold text-green-500 mb-2">1M+</div>
+                      <div class="text-gray-400">Threats Detected</div>
+                  </div>
+                  <div class="bg-slate-800/50 backdrop-blur-xl rounded-lg border border-purple-500/20 p-6 text-center">
+                      <div class="text-4xl font-bold text-purple-500 mb-2">24/7</div>
+                      <div class="text-gray-400">Active Monitoring</div>
+                  </div>
+              </div>
+
+      </div>
+
+  </div>
+
+  
+</section>
